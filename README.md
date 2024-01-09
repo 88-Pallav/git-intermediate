@@ -97,7 +97,35 @@ b. GitFlow
     /                            \  
    c                              c (main branch)
 
-   
+
+********* Pull Requests ************
+
+- Communicating about and reviewing of code
+- feedback before merger
+- Contributing code to other repositories
+
+Fork: Is a personal copy of git repository
+Fork it --> Change it --> Raise a Pull request 
+
+Note: Pull requests are always based on branches and not individual commits
+
+
+********* Merge Conflicts ************
+ How and when?
+ When integrating commits from Different sources
+ When git merge/git rebase/git pull/
+      git cherry-pick/ git stash apply 
+
+- mostly git figuers out automatically
+- But sometimes changes are contradictory
+
+To undo a conflict and start over:
+git merge --abort
+git rebase --abort
+
+To resolve a conflict:
+- clean up the file
+- talk to fellow coder
 
 
 
