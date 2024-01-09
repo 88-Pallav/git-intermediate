@@ -127,8 +127,52 @@ To resolve a conflict:
 - clean up the file
 - talk to fellow coder
 
+********* Merge V/s Rebase ************
+        
+// Merge:         
 
+        (last commit on branch A)    
+(c'mon ancestor) c1-------------branch A 
+                  \
+                   \
+                    c2 --- c3 ----- branch B
+                (last commit on branch B)
 
+Git looks for the above mentioned three commits in parenthesi
+and end points of each branch
+
+// Fast forward merge 
+                        Branch_A
+c1 -----> c2 -----> c3 
+                        Branch_B
+
+All commits are added witha c'mn ancestor commits 
+
+// The merge commit 
+              (merge commit)
+c1 -----> c3 -----> c5 ---- branch A
+  \                /
+    c2 <-------- c4 ------- branch B
+
+- gets created automatically by git not by a developer 
+- purpose is to connect two branched like a knot
+
+// Rebase 
+
+c1 ---> c2 ---> c4 ---> c3  
+
+c2, c4 - Branch-B
+c3 - Branch-A
+
+Braanching branch b:
+git rebase branch-B
+
+This is what happens:
+a. Git removes all commmits of branch A to ancestor commit (Parked Somewhere) 
+b. It applies commits of Branch B making both Branches look the same temporarily 
+c. Then rewriting commit history parked commits of branch A are commited on top of commits of branch B.
+   
+All this makes it look like a it all happened sequentialy
 
 
 
