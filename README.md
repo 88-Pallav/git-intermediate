@@ -35,11 +35,75 @@ b. Compose a 'good' commit message
     - Anything to watchout for
 
 
+********** Branching Strategies ************
+
+a. Have a written agreed upon convention
+b. Integrating and structuring releases:
+    b1. Mainline Development ("Always be Integerating")
+    b2. State, release and Feature Branches 
+
+
+// Mainline Development (Always be integrating)
+    - few branches 
+    - relatively small commits
+    - high quality testing and QA standards 
+
+    commit_1 ----> commit_2 ----> commit_3 ---> main_branch
+
+// State, release and Feature Branches
+    - different brach types 
+    - fulfill different type of jobs
+        
+        (feature branch)
+        c ---> c ---> c     c ---> c ---> c
+      c/               \ c /               \c (develop branch)
+    c/                                       \c (main branch)
+
+// Long running Branches 
+   - exist through the complete lifetime of the project
+   - often, they mirror "stages" in your dev life cycle
+   - c'mon convention: no direct commits 
+     i.e. only through merge/rebase
+   - eg. develop branch & main branch
+
+// Short-lived branches 
+    - for new features, bug fixes, refactoring, experiments
+    - will be deleted after integration (merge/rebase)
+    - eg. feature branch 
+
+***** Two Branching Strategies *********
+a. Github Flow
+b. GitFlow
+
+// GitHub Flow
+    - very simple, very lean: only one long running
+    - branches: main + feature
+        
+        (feature branch)
+        c ---> c ---> c     c (bugfix branch)
+      c/               \ c / \c (main branch)   
+
+// Git Flow
+
+    - more structure, more rules
+    - long-running: "main" + "develop"
+    - short-lived: feature, releases, hotfixes 
+
+        (feature branch)
+        c --> c --> c   (release branch)
+       /            \   c --> c
+      /              \ /       \
+     c                c         \   (develop branch)
+    /                            \  
+   c                              c (main branch)
+
+   
 
 
 
 
-    
+
+
 
 
 
