@@ -174,6 +174,10 @@ c. Then rewriting commit history parked commits of branch A are commited on top 
    
 All this makes it look like a it all happened sequentialy
 
+Warning: Do NOT use rebase on commits pushed/shared on a remote repository
+Instead use it for cleaning up your local commits on a remote repository
+
+
 
 
 
