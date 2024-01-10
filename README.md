@@ -118,14 +118,16 @@ Note: Pull requests are always based on branches and not individual commits
  How and when?
 
  When integrating commits from Different sources
- When git merge/git rebase/git pull/
-      git cherry-pick/ git stash apply 
+ 
+ When git merge/git rebase/git pull/git cherry-pick/ git stash apply 
 
-- mostly git figuers out automatically
+- mostly git figures out automatically
 - But sometimes changes are contradictory
 
 To undo a conflict and start over:
+
 git merge --abort
+
 git rebase --abort
 
 To resolve a conflict:
@@ -171,12 +173,15 @@ c1 ---> c2 ---> c4 ---> c3
 c2, c4 - Branch-B
 c3 - Branch-A
 
-Braanching branch b:
+Branching branch b:
 git rebase branch-B
 
 This is what happens:
+
 a. Git removes all commmits of branch A to ancestor commit (Parked Somewhere) 
+
 b. It applies commits of Branch B making both Branches look the same temporarily 
+
 c. Then rewriting commit history parked commits of branch A are commited on top of commits of branch B.
    
 All this makes it look like a it all happened sequentialy
