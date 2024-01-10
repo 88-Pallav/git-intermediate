@@ -76,12 +76,14 @@ a. Github Flow
 b. GitFlow
 
 // GitHub Flow
+
     - very simple, very lean: only one long running
     - branches: main + feature
         
         (feature branch)
-        c ---> c ---> c     c (bugfix branch)
-      c/               \ c / \c (main branch)   
+        c ---> c ---> c    c (bugfix branch)
+       /               \  / \   
+      c                 c    c (main branch) 
 
 // Git Flow
 
@@ -105,13 +107,16 @@ b. GitFlow
 - Contributing code to other repositories
 
 Fork: Is a personal copy of git repository
+
 Fork it --> Change it --> Raise a Pull request 
 
 Note: Pull requests are always based on branches and not individual commits
 
 
 ********* Merge Conflicts ************
+ 
  How and when?
+
  When integrating commits from Different sources
  When git merge/git rebase/git pull/
       git cherry-pick/ git stash apply 
@@ -142,13 +147,15 @@ Git looks for the above mentioned three commits in parenthesi
 and end points of each branch
 
 // Fast forward merge 
+
                         Branch_A
 c1 -----> c2 -----> c3 
                         Branch_B
 
-All commits are added witha c'mn ancestor commits 
+All commits are added witha c'mon ancestor commits 
 
 // The merge commit 
+              
               (merge commit)
 c1 -----> c3 -----> c5 ---- branch A
   \                /
