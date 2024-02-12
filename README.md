@@ -21,16 +21,16 @@ a. Add the 'right' changes
 
     Golden rule: Only combine files of the same topic to one commit.
 
-    To decide what to include and what not to we need to go to the patch level:
+    To decide what changes to include and what not to, we need to go to the patch level:
 
     git add -p file_name
     (Here git will ask, We have to use 'y' for add and 'n' for leave)
 
 b. Compose a 'good' commit message
 
-    Subject: Cncise summary of what happened (< 80 Characters)
+    Subject: Concise summary of what happened (< 80 Characters)
     Body = more detailed explanation
-    - difference from before
+    - Difference from before
     - Reason for changes 
     - Anything to watchout for
 
@@ -51,7 +51,7 @@ b. Integrating and structuring releases:
     commit_1 ----> commit_2 ----> commit_3 ---> main_branch
 
 // State, release and Feature Branches
-    - different brach types 
+    - different branch types 
     - fulfill different type of jobs
         
         (feature branch)
@@ -145,7 +145,7 @@ To resolve a conflict:
                     c2 --- c3 ----- branch B
                 (last commit on branch B)
 
-Git looks for the above mentioned three commits in parenthesi
+Git looks for the above mentioned three commits in parenthesis
 and end points of each branch
 
 // Fast forward merge 
@@ -188,6 +188,80 @@ All this makes it look like a it all happened sequentialy
 
 Warning: Do NOT use rebase on commits pushed/shared on a remote repository
 Instead use it for cleaning up your local commits on a remote repository
+
+
+****************** Branching in detail ********************************
+// Core concepts 
+
+The HEAD branch: The currently 'active' or 'checked out' branch
+(There can only be one HEAD branch)
+
+Local & Remote Branches: 95% times "working" with branches means local branches. That we are workig in a local git repository.
+
+#1 To create a new Branch:
+
+git branch <new_branch_name>   (Git here assumes that we are going to start a new branch based on the currently checkout revision)
+
+
+#2 To start a new_branch at a specific revision:
+
+git branch <new_branch_name> revision_hash
+
+
+#3 To switch a branch:
+
+git checkout <branch_name> | git switch <branch_name> 
+
+
+#4 To rename a current 'local' branch:
+
+git branch -m <new_name>
+
+
+#5 To rename a different 'local' branch other than the current branch:
+
+git branch -m <old_branch_name> <new_branch_name> 
+
+
+#6 Renaming 'remote' branch:
+
+Step 1: Delete current/old branch
+
+git push origin --delete <old_name>
+
+Step 2: Push the new local branch with the correct name:
+
+git push -u origin <new_name>
+
+
+#7 Pushing Branches: Uploading a local branch for the first time:
+
+git push -u origin <local_branch>   
+
+// '-u' is upstream tells git to establish a tracking connection
+to make psuhing and puling later on easier
+
+
+#8 Tracking Branches: 
+
+Connecting branches with each other. Local and remote branches are independent to each other
+but in real situations do share a relationship (like a counterpart)
+
+
+
+c1 <--- c2 <------------------ c5---- Local branch 'develop' ---
+         \
+          c3 <--- c4 ---------------- remote branch 'origin/develop'
+ 
+- 
+
+
+
+
+
+
+
+
 
 
 
