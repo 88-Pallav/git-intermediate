@@ -216,15 +216,89 @@ git push -u origin <new_name>
 git push -u origin <local_branch>   
 
 Note: '-u' is upstream tells git to establish a tracking connection
-to make psuhing and puling later on easier
+to make pushing and puling later on easier
 
 *#8 Tracking Branches:* 
 Connecting branches with each other. Local and remote branches are independent to each other
-but in real situations do share a relationship (like a counterpart)
+but in real situations do share a relationship (like a counterpart).
 
 c1 <--- c2 <------------------ c5---- Local branch 'develop' ---
          \
           c3 <--- c4 ---------------- remote branch 'origin/develop'
+
+*Connecting branches with one another to track a remote branch to a local branch:*
+git branch --track <new branch> origin/base<base-branch>
+*or*
+git checkout --track origin/<base_branch>
+
+*#9 Deleting a branch in local repository:*
+git branch -d <branch-name>     // You cant delete a current head (active) branch 
+
+*To switch a branch use:*
+git branch <branch_name>        // Then you can use #9 to delete the branch
+
+*To delete a remote branch:*
+git push origin --delete <branch_name> 
+
+*Merging Branches: Integerating changes from another branch into your current local HEAD branch:*
+
+*Step 1: Checkout the branch that should recieve the changes:*
+git switch <branch_name>
+
+*Step 2: Execute the merge command with the name of the branch that contains the desired changes:*
+git merge <branch_name>
+
+*#10 Rebasing: Alternative way to integrate changes from another branch into your current local head*
+*Merge V/s Rebase*
+
+*Merge Commit:*
+                      Merge commit
+                           |
+c1<---------c3<-----------c5----Branch_A (Head)
+\                        /
+ \                      /
+  c2 ------------------c4---------Branch_B
+
+*Git Rebase:*                  
+                                Branch-A (Head)
+                                     |
+c1----------c2----------c4----------c3
+                        |
+                     Branch-B
+
+*Step 1: Checkout the branch that should recieve the changes:*
+git switch <branch_name>
+
+*Step 2: Execute the "rebase" command with the name of the branch that contains the desired changes:*
+git rebase <branch_name>
+
+*#11 Comparing Branches: Checking the commits that are in Branch-B but not in Branch-A:*
+git log main..<Branch-Name>     // Eg. git log main..<feature/uploader>
+
+*To see diff between local and main branch:*
+git log origin/main..main
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
 
 
