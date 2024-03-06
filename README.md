@@ -21,10 +21,8 @@ a. Add the 'right' changes
 
     Golden rule: Only combine files of the same topic to one commit.
 
-    To decide what changes to include and what not to, we need to go to the patch level:
-
-    git add -p file_name
-    (Here git will ask, We have to use 'y' for add and 'n' for leave)
+    *To decide what changes to include and what not to, we need to go to the patch level:*
+    git add -p file_name  *(Here git will ask, We have to use 'y' for add and 'n' for leave)*
 
 b. Compose a 'good' commit message
 
@@ -57,7 +55,7 @@ b. Integrating and structuring releases:
         (feature branch)
         c ---> c ---> c     c ---> c ---> c
       c/               \ c /               \c (develop branch)
-    c/                                       \c (main branch)
+    c/                                      \c (main branch)
 
 // Long running Branches 
    - exist through the complete lifetime of the project
@@ -71,7 +69,7 @@ b. Integrating and structuring releases:
     - will be deleted after integration (merge/rebase)
     - eg. feature branch 
 
-***** Two Branching Strategies *********
+********* Two Branching Strategies *********
 a. Github Flow
 b. GitFlow
 
@@ -119,22 +117,19 @@ Note: Pull requests are always based on branches and not individual commits
 
  When integrating commits from Different sources
  
- When git merge/git rebase/git pull/git cherry-pick/ git stash apply 
-
+ *When git_merge/git_rebase/git_pull/git_cherry_pick/git_stash apply:* 
 - mostly git figures out automatically
 - But sometimes changes are contradictory
 
-To undo a conflict and start over:
-
+*To undo a conflict and start over:*
 git merge --abort
-
 git rebase --abort
 
-To resolve a conflict:
+*To resolve a conflict:*
 - clean up the file
 - talk to fellow coder
 
-********* Merge V/s Rebase ************
+********* Merge V/s Re-base ************
         
 // Merge:         
 
@@ -154,7 +149,7 @@ and end points of each branch
 c1 -----> c2 -----> c3 
                         Branch_B
 
-All commits are added witha c'mon ancestor commits 
+All commits are added with a c'mon ancestor commits 
 
 // The merge commit 
               
@@ -173,87 +168,64 @@ c1 ---> c2 ---> c4 ---> c3
 c2, c4 - Branch-B
 c3 - Branch-A
 
-Branching branch b:
+*Branching branch b:*
 git rebase branch-B
 
 This is what happens:
 
-a. Git removes all commmits of branch A to ancestor commit (Parked Somewhere) 
-
-b. It applies commits of Branch B making both Branches look the same temporarily 
-
+a. Git removes all commmits of branch A to ancestor commit (Parked Somewhere).
+b. It applies commits of Branch B making both Branches look the same temporarily.
 c. Then rewriting commit history parked commits of branch A are commited on top of commits of branch B.
    
-All this makes it look like a it all happened sequentialy
+All this makes it look like it all happened sequentialy
 
 Warning: Do NOT use rebase on commits pushed/shared on a remote repository
 Instead use it for cleaning up your local commits on a remote repository
 
 
 ****************** Branching in detail ********************************
-// Core concepts 
 
-The HEAD branch: The currently 'active' or 'checked out' branch
+*The HEAD branch:* The currently 'active' or 'checked out' branch
 (There can only be one HEAD branch)
 
 Local & Remote Branches: 95% times "working" with branches means local branches. That we are workig in a local git repository.
 
-#1 To create a new Branch:
+*#1 To create a new Branch:*
+git branch <new_branch_name>   *(Git here assumes that we are going to start a new branch based on the currently checkout revision)*
 
-git branch <new_branch_name>   (Git here assumes that we are going to start a new branch based on the currently checkout revision)
-
-
-#2 To start a new_branch at a specific revision:
-
+*#2 To start a new_branch at a specific  revision:*
 git branch <new_branch_name> revision_hash
 
-
-#3 To switch a branch:
-
+*#3 To switch a branch:*
 git checkout <branch_name> | git switch <branch_name> 
 
-
-#4 To rename a current 'local' branch:
-
+*#4 To rename a current 'local' branch:*
 git branch -m <new_name>
 
-
-#5 To rename a different 'local' branch other than the current branch:
-
+*#5 To rename a different 'local' branch other than the current branch:*
 git branch -m <old_branch_name> <new_branch_name> 
 
-
-#6 Renaming 'remote' branch:
-
-Step 1: Delete current/old branch
-
+*#6 Renaming 'remote' branch:*
+*Step 1: Delete current/old branch*
 git push origin --delete <old_name>
 
-Step 2: Push the new local branch with the correct name:
-
+*Step 2: Push the new local branch with the correct name:*
 git push -u origin <new_name>
 
-
-#7 Pushing Branches: Uploading a local branch for the first time:
-
+*#7 Pushing Branches: Uploading a local branch for the first time:*
 git push -u origin <local_branch>   
 
-// '-u' is upstream tells git to establish a tracking connection
+Note: '-u' is upstream tells git to establish a tracking connection
 to make psuhing and puling later on easier
 
-
-#8 Tracking Branches: 
-
+*#8 Tracking Branches:* 
 Connecting branches with each other. Local and remote branches are independent to each other
 but in real situations do share a relationship (like a counterpart)
-
-
 
 c1 <--- c2 <------------------ c5---- Local branch 'develop' ---
          \
           c3 <--- c4 ---------------- remote branch 'origin/develop'
  
-- 
 
 
 
